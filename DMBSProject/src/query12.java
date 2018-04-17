@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class query5
+public class query12
 {
 	public static void create()
 	{
@@ -18,7 +18,7 @@ public class query5
 		{
 			Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/finalbase","ashwat","passwordchahiye");
 			Statement stat=conn.createStatement();
-			ResultSet res=stat.executeQuery("select brand_name from brand where total_products>=3;");
+			ResultSet res=stat.executeQuery("select distinct brand.brand_name from brand INNER JOIN equipment ON brand.brand_name=equipment.brand_name where equipment.colour='red' and brand.total_products>3;");
 			int i = 0;
 			while(res.next()) 
 			{
@@ -36,8 +36,8 @@ public class query5
 	    JScrollPane scrollPane = new JScrollPane(table);
 	    table.setFillsViewportHeight(true);
 	 
-	    JLabel lblHeading = new JLabel("Display Brand Name where total products >= 3 - (SIMPLE) ");
-	    lblHeading.setFont(new Font("Arial",Font.TRUETYPE_FONT,20));
+	    JLabel lblHeading = new JLabel("Display Brand Names whose equipment's color = 'RED' and has total products > 3 - (COMPLEX) ");
+	    lblHeading.setFont(new Font("Arial",Font.TRUETYPE_FONT,18));
 	    
 	    frame.getContentPane().setLayout(new BorderLayout());
 	    frame.getContentPane().add(lblHeading,BorderLayout.PAGE_START);
@@ -46,12 +46,11 @@ public class query5
 	    frame.setVisible(true);
 	}
 	
-	/*
+	
 	public static void main( String[] args )
 	{
 		create();
 	}
-	*/
 	
 }
 

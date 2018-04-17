@@ -6,25 +6,26 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class query5
+public class query8
 {
 	public static void create()
 	{
 		JFrame frame = new JFrame();
-		String[] columns = {"Brand Name"};
-		Object[][] data = new Object[10][1];
+		String[] columns = {"Brand Name","Average Price"};
+		Object[][] data = new Object[10][2];
 		
 		try
 		{
 			Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/finalbase","ashwat","passwordchahiye");
 			Statement stat=conn.createStatement();
-			ResultSet res=stat.executeQuery("select brand_name from brand where total_products>=3;");
+			ResultSet res=stat.executeQuery("select brand_name,avg(price) from equipment group by brand_name");
 			int i = 0;
 			while(res.next()) 
 			{
 				data[i][0] = res.getString("brand_name");
+				data[i][1] = res.getDouble("avg(price)");
 				i++;
-				System.out.println(res.getString("brand_name"));
+				System.out.println(res.getString("brand_name")+" "+res.getDouble("avg(price)"));
 			}
 		} 
 		catch (Exception e) 
@@ -36,7 +37,7 @@ public class query5
 	    JScrollPane scrollPane = new JScrollPane(table);
 	    table.setFillsViewportHeight(true);
 	 
-	    JLabel lblHeading = new JLabel("Display Brand Name where total products >= 3 - (SIMPLE) ");
+	    JLabel lblHeading = new JLabel("Display Brand Names with average prices of their equipment - (COMPLEX) ");
 	    lblHeading.setFont(new Font("Arial",Font.TRUETYPE_FONT,20));
 	    
 	    frame.getContentPane().setLayout(new BorderLayout());
@@ -46,12 +47,11 @@ public class query5
 	    frame.setVisible(true);
 	}
 	
-	/*
 	public static void main( String[] args )
 	{
 		create();
 	}
-	*/
+
 	
 }
 

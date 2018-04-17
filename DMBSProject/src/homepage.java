@@ -15,37 +15,37 @@ public class homepage
 	public static void create()
 	{
 		mainbox = new JFrame();
-		mainbox.setSize(500,500);
+		mainbox.setSize(720,500);
 		
 		JLabel banner = new JLabel("Khokhar GymKhana");
 		banner.setFont(new Font("JokerMan",3,25));
 		banner.setVisible( true );
 		banner.setBounds(100,7,280,50);
 		
-		JRadioButton op1 =new JRadioButton("Display All Customer Names - (SIMPLE) ");    
-		JRadioButton op2 =new JRadioButton("Display All Customer Names Who Live In Rohini - (SIMPLE)"); 
-		JRadioButton op3 =new JRadioButton("Query 3 - (SIMPLE)");
-		JRadioButton op4 =new JRadioButton("Query 4 - (SIMPLE)");
-		JRadioButton op5 =new JRadioButton("Query 5 - (SIMPLE)");
-		JRadioButton op6 =new JRadioButton("Query 6 - (SIMPLE)");
-		JRadioButton op7 =new JRadioButton("Query 7 - (SIMPLE)");
-		JRadioButton op8 =new JRadioButton("Query 8 - (SIMPLE)");
-		JRadioButton op9 =new JRadioButton("Query 9 - (SIMPLE)");
-		JRadioButton op10 =new JRadioButton("Query 10 - (SIMPLE)");
-		JRadioButton op11 =new JRadioButton("Query 11 - (SIMPLE)");
-		JRadioButton op12 =new JRadioButton("Query 12 - (SIMPLE)");
-		op1.setBounds(75,50,400,30);    
-		op2.setBounds(75,80,400,30);
-		op3.setBounds(75,110,400,30);
-		op4.setBounds(75,140,400,30);
-		op5.setBounds(75,170,400,30);
-		op6.setBounds(75,200,400,30);
-		op7.setBounds(75,230,400,30);
-		op8.setBounds(75,260,400,30);
-		op9.setBounds(75,290,400,30);
-		op10.setBounds(75,320,400,30);
-		op11.setBounds(75,350,400,30);
-		op12.setBounds(75,380,400,30);
+		JRadioButton op1 =new JRadioButton("Display All Customer Info - (SIMPLE) ");    
+		JRadioButton op2 =new JRadioButton("Display All Customer Info. Who Live In Rohini - (SIMPLE) "); 
+		JRadioButton op3 =new JRadioButton("Display All Staff Info - (SIMPLE) ");
+		JRadioButton op4 =new JRadioButton("Staff Name with Salary > 20000 && Work Hours > 3 hours/week - (SIMPLE) ");
+		JRadioButton op5 =new JRadioButton("Display Brand Name where total products >= 3 - (SIMPLE) ");
+		JRadioButton op6 =new JRadioButton("Display Customer Names whose Membership Plan is 'VIP' - (COMPLEX) ");
+		JRadioButton op7 =new JRadioButton("Display Customer Names whose Trainer's Salary > 4000 - (COMPLEX) ");
+		JRadioButton op8 =new JRadioButton("Display Brand Names with average prices of their equipment - (COMPLEX) ");
+		JRadioButton op9 =new JRadioButton("Display Staff IDs with average age of their customers - (COMPLEX) ");
+		JRadioButton op10 =new JRadioButton("Display Equipment Names whose Weights > 30 and Color = 'RED' - (SIMPLE) ");
+		JRadioButton op11 =new JRadioButton("Display Customer IDs whose Membership Plan is 'Regular' with Duration Left(in months) - (SIMPLE) ");
+		JRadioButton op12 =new JRadioButton("Display Brand Names whose equipment's color = 'RED' and has total products > 3 - (COMPLEX) ");
+		op1.setBounds(25,50,400,30);    
+		op2.setBounds(25,80,400,30);
+		op3.setBounds(25,110,400,30);
+		op4.setBounds(25,140,600,30);
+		op5.setBounds(25,170,530,30);
+		op6.setBounds(25,200,550,30);
+		op7.setBounds(25,230,550,30);
+		op8.setBounds(25,260,550,30);
+		op9.setBounds(25,290,530,30);
+		op10.setBounds(25,320,570,30);
+		op11.setBounds(25,350,610,30);
+		op12.setBounds(25,380,590,30);
 		
 		bg = new ButtonGroup();    
 		bg.add(op1);bg.add(op3);bg.add(op5);
@@ -115,27 +115,33 @@ public class homepage
 	      	            }
 	      	            else if ( disy == 230 )
 	      	            {
-	      				
+	      	            	query7 q7 = new query7();
+	      	            	q7.create();
 	      	            }
 	      	            else if ( disy == 260 )
 	      	            {
-	      				
+	      	            	query8 q8 = new query8();
+	      	            	q8.create();
 	      	            }
 	      	            else if ( disy == 290 )
 	      	            {
-	      				
+	      	            	query9 q9 = new query9();
+	      	            	q9.create();
 	      	            }	
 	      	            else if ( disy == 320 )
 	      	            {
-	      				
+	      	            	query10 q10 = new query10();
+	      	            	q10.create();
 	      	            }
 	      	            else if ( disy == 350 )
 	      	            {
-	      				
+	      	            	query11 q11 = new query11();
+	      	            	q11.create();
 	      	            }
 	      	            else if ( disy == 380 )
 	      	            {
-	      				
+	      	            	query12 q12 = new query12();
+	      	            	q12.create();
 	      	            }
 	      	            break;
 	      	        }

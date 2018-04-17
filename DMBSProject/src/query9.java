@@ -6,25 +6,26 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class query5
+public class query9
 {
 	public static void create()
 	{
 		JFrame frame = new JFrame();
-		String[] columns = {"Brand Name"};
-		Object[][] data = new Object[10][1];
+		String[] columns = {"Staff ID","Average Age"};
+		Object[][] data = new Object[10][2];
 		
 		try
 		{
 			Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/finalbase","ashwat","passwordchahiye");
 			Statement stat=conn.createStatement();
-			ResultSet res=stat.executeQuery("select brand_name from brand where total_products>=3;");
+			ResultSet res=stat.executeQuery("select staff_id,avg(age) from customer group by staff_id;");
 			int i = 0;
 			while(res.next()) 
 			{
-				data[i][0] = res.getString("brand_name");
+				data[i][0] = res.getInt("staff_id");
+				data[i][1] = res.getDouble("avg(age)");
 				i++;
-				System.out.println(res.getString("brand_name"));
+				System.out.println(res.getInt("staff_id")+" "+res.getDouble("avg(age)"));
 			}
 		} 
 		catch (Exception e) 
@@ -36,7 +37,7 @@ public class query5
 	    JScrollPane scrollPane = new JScrollPane(table);
 	    table.setFillsViewportHeight(true);
 	 
-	    JLabel lblHeading = new JLabel("Display Brand Name where total products >= 3 - (SIMPLE) ");
+	    JLabel lblHeading = new JLabel("Display Staff IDs with average age of their customers - (COMPLEX) ");
 	    lblHeading.setFont(new Font("Arial",Font.TRUETYPE_FONT,20));
 	    
 	    frame.getContentPane().setLayout(new BorderLayout());
@@ -46,12 +47,10 @@ public class query5
 	    frame.setVisible(true);
 	}
 	
-	/*
 	public static void main( String[] args )
 	{
 		create();
 	}
-	*/
 	
 }
 

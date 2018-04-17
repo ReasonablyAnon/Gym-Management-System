@@ -16,7 +16,7 @@ public class query1
 		
 		try
 		{
-			Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/gym1","ashwat","passwordchahiye");
+			Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/finalbase","ashwat","passwordchahiye");
 			Statement stat=conn.createStatement();
 			ResultSet res=stat.executeQuery("select * from customer");
 			int i = 0;
@@ -40,7 +40,7 @@ public class query1
 	    JScrollPane scrollPane = new JScrollPane(table);
 	    table.setFillsViewportHeight(true);
 	 
-	    JLabel lblHeading = new JLabel("Display All Customer Names - (SIMPLE)");
+	    JLabel lblHeading = new JLabel("Display All Customer Info - (SIMPLE)");
 	    lblHeading.setFont(new Font("Arial",Font.TRUETYPE_FONT,30));
 	    
 	    frame.getContentPane().setLayout(new BorderLayout());

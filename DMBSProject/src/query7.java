@@ -6,25 +6,25 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class query5
+public class query7
 {
 	public static void create()
 	{
 		JFrame frame = new JFrame();
-		String[] columns = {"Brand Name"};
+		String[] columns = {"Customer Name"};
 		Object[][] data = new Object[10][1];
 		
 		try
 		{
 			Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/finalbase","ashwat","passwordchahiye");
 			Statement stat=conn.createStatement();
-			ResultSet res=stat.executeQuery("select brand_name from brand where total_products>=3;");
+			ResultSet res=stat.executeQuery("select customer_name from customer INNER JOIN staff ON customer.staff_id=staff.staff_id where staff.salary>40000;");
 			int i = 0;
 			while(res.next()) 
 			{
-				data[i][0] = res.getString("brand_name");
+				data[i][0] = res.getString("customer_name");
 				i++;
-				System.out.println(res.getString("brand_name"));
+				System.out.println(res.getString("customer_name"));
 			}
 		} 
 		catch (Exception e) 
@@ -36,7 +36,7 @@ public class query5
 	    JScrollPane scrollPane = new JScrollPane(table);
 	    table.setFillsViewportHeight(true);
 	 
-	    JLabel lblHeading = new JLabel("Display Brand Name where total products >= 3 - (SIMPLE) ");
+	    JLabel lblHeading = new JLabel("Display Customer Names whose Trainer's Salary > 4000 - (COMPLEX) ");
 	    lblHeading.setFont(new Font("Arial",Font.TRUETYPE_FONT,20));
 	    
 	    frame.getContentPane().setLayout(new BorderLayout());
@@ -52,7 +52,6 @@ public class query5
 		create();
 	}
 	*/
-	
 }
 
 
