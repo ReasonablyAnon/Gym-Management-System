@@ -9,7 +9,7 @@ public class assignment4 {
 //			while(res.next()) {
 //				System.out.println(res.getInt("customer_id")+" "+res.getString("customer_name")+" "+res.getString("address")+" "+res.getInt("age"));
 //			}
-			ComplexAverageageperTrainer(conn);
+			ComplexDistinctBrandNameclrRestotalPdt(conn);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -42,11 +42,11 @@ public class assignment4 {
 			System.out.println(res.getString("staff_name"));
 		}
 	}
-	public static void MembershipRegulrCId(Connection conn) throws SQLException {
+	public static void MembershipRegulrDuration(Connection conn) throws SQLException {
 		Statement st=conn.createStatement();
-		ResultSet res=st.executeQuery("select customer_id from membershipPLan where mem_type='Regular'");
+		ResultSet res=st.executeQuery("select customer_id,duration_left from membershipPLan where mem_type='Regular'");
 		while(res.next()) {
-			System.out.println(res.getString("customer_id"));
+			System.out.println(res.getString("customer_id")+" "+res.getInt("duration_left"));
 		}
 	}
 	public static void brandPartsgreater(Connection conn) throws SQLException {
@@ -60,7 +60,7 @@ public class assignment4 {
 		Statement st=conn.createStatement();
 		ResultSet res=st.executeQuery("select equipment_id from equipment where weight>30 and colour='red'");
 		while(res.next()) {
-			System.out.println(res.getInt("equipment_id"));
+			System.out.println(res.getString("equipment_name"));
 		}
 	}
 	public static void ComplexCustomerNameSuchthatMembershipIsVIP(Connection conn) throws SQLException {
@@ -89,6 +89,13 @@ public class assignment4 {
 		ResultSet res=st.executeQuery("select staff_id,avg(age) from customer group by staff_id;");
 		while(res.next()) {
 			System.out.println(res.getInt("staff_id")+" "+res.getDouble("avg(age)"));
+		}
+	}
+	public static void ComplexDistinctBrandNameclrRestotalPdt(Connection conn) throws SQLException{
+		Statement st=conn.createStatement();
+		ResultSet res=st.executeQuery("select distinct brand.brand_name from brand INNER JOIN equipment ON brand.brand_name=equipment.brand_name where equipment.colour='red' and brand.total_products>3");
+		while(res.next()) {
+			System.out.println(res.getString("brand_name"));
 		}
 	}
 }	
