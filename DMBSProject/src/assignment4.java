@@ -9,7 +9,7 @@ public class assignment4 {
 //			while(res.next()) {
 //				System.out.println(res.getInt("customer_id")+" "+res.getString("customer_name")+" "+res.getString("address")+" "+res.getInt("age"));
 //			}
-			ComplexCustomerNameSuchthatMembershipIsVIP(conn);
+			ComplexAverageageperTrainer(conn);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -75,6 +75,20 @@ public class assignment4 {
 		ResultSet res=st.executeQuery("select customer_name from customer INNER JOIN staff ON customer.staff_id=staff.staff_id where staff.salary>40000");
 		while(res.next()) {
 			System.out.println(res.getString("customer_name"));
+		}
+	}
+	public static void ComplexAveragePriceperBrand(Connection conn) throws SQLException  {
+		Statement st=conn.createStatement();
+		ResultSet res=st.executeQuery("select brand_name,avg(Price) from equipment group by brand_name");
+		while(res.next()) {
+			System.out.println(res.getString("brand_name")+" "+res.getDouble("avg(Price)"));
+		}
+	}
+	public static void ComplexAverageageperTrainer(Connection conn) throws SQLException  {
+		Statement st=conn.createStatement();
+		ResultSet res=st.executeQuery("select staff_id,avg(age) from customer group by staff_id;");
+		while(res.next()) {
+			System.out.println(res.getInt("staff_id")+" "+res.getDouble("avg(age)"));
 		}
 	}
 }	
