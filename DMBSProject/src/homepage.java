@@ -15,7 +15,7 @@ public class homepage
 	public static void create()
 	{
 		mainbox = new JFrame();
-		mainbox.setSize(720,500);
+		mainbox.setSize(760,600);
 		
 		JLabel banner = new JLabel("Khokhar GymKhana");
 		banner.setFont(new Font("JokerMan",3,25));
@@ -28,12 +28,16 @@ public class homepage
 		JRadioButton op4 =new JRadioButton("Staff Name with Salary > 20000 && Work Hours > 3 hours/week - (SIMPLE) ");
 		JRadioButton op5 =new JRadioButton("Display Brand Name where total products >= 3 - (SIMPLE) ");
 		JRadioButton op6 =new JRadioButton("Display Customer Names whose Membership Plan is 'VIP' - (COMPLEX) ");
-		JRadioButton op7 =new JRadioButton("Display Customer Names whose Trainer's Salary > 4000 - (COMPLEX) ");
+		JRadioButton op7 =new JRadioButton("Display Customer Names whose Trainer's Salary > 40000 - (COMPLEX) ");
 		JRadioButton op8 =new JRadioButton("Display Brand Names with average prices of their equipment - (COMPLEX) ");
 		JRadioButton op9 =new JRadioButton("Display Staff IDs with average age of their customers - (COMPLEX) ");
 		JRadioButton op10 =new JRadioButton("Display Equipment Names whose Weights > 30 and Color = 'RED' - (SIMPLE) ");
 		JRadioButton op11 =new JRadioButton("Display Customer IDs whose Membership Plan is 'Regular' with Duration Left(in months) - (SIMPLE) ");
 		JRadioButton op12 =new JRadioButton("Display Brand Names whose equipment's color = 'RED' and has total products > 3 - (COMPLEX) ");
+		JRadioButton op13 =new JRadioButton("Add Customer into Databse - (SIMPLE) ");
+		JRadioButton op14 =new JRadioButton("Update Staff's Salary - (SIMPLE) ");
+		//JRadioButton op15 =new JRadioButton(" - (COMPLEX) ");
+		
 		op1.setBounds(25,50,400,30);    
 		op2.setBounds(25,80,400,30);
 		op3.setBounds(25,110,400,30);
@@ -46,21 +50,29 @@ public class homepage
 		op10.setBounds(25,320,570,30);
 		op11.setBounds(25,350,610,30);
 		op12.setBounds(25,380,590,30);
+		op13.setBounds(25,410,590,30);
+		op14.setBounds(25,440,590,30);
+		//op15.setBounds(25,470,590,30);
 		
 		bg = new ButtonGroup();    
 		bg.add(op1);bg.add(op3);bg.add(op5);
 		bg.add(op2);bg.add(op4);bg.add(op6); 
 		bg.add(op7);bg.add(op9);bg.add(op11);
 		bg.add(op8);bg.add(op10);bg.add(op12);
+		bg.add(op13);bg.add(op14);
+		//bg.add(op15);
 		
 		JButton button = new JButton("Select");
-		button.setBounds(45,410,200,30);
+		button.setBounds(75,500,200,30);
 		
 		mainbox.add(banner);
 		mainbox.add(op1);mainbox.add(op3);mainbox.add(op5);
 		mainbox.add(op2);mainbox.add(op4);mainbox.add(op6); 
 		mainbox.add(op7);mainbox.add(op9);mainbox.add(op11);
 		mainbox.add(op8);mainbox.add(op10);mainbox.add(op12);
+		mainbox.add(op13);mainbox.add(op14);
+		//mainbox.add(op15);
+		
 		mainbox.add(button);
 		mainbox.setLayout(null);
 		mainbox.setVisible(true);
@@ -142,6 +154,16 @@ public class homepage
 	      	            {
 	      	            	query12 q12 = new query12();
 	      	            	q12.create();
+	      	            }
+	      	            else if ( disy == 410 )
+	      	            {
+	      	            	query13add q13 = new query13add();
+	      	            	q13.create();
+	      	            }
+	      	            else if ( disy == 440 )
+	      	            {
+	      	            	query14 q14 = new query14();
+	      	            	q14.create();
 	      	            }
 	      	            break;
 	      	        }

@@ -5,15 +5,16 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.HashMap;
 
 public class query12
 {
 	public static void create()
 	{
+		HashMap<Integer,Integer> map = new HashMap<Integer,Integer>();
 		JFrame frame = new JFrame();
 		String[] columns = {"Brand Name"};
 		Object[][] data = new Object[10][1];
-		
 		try
 		{
 			Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/finalbase","ashwat","passwordchahiye");
@@ -46,7 +47,6 @@ public class query12
 	    frame.setVisible(true);
 	}
 	
-	
 	public static void main( String[] args )
 	{
 		create();
@@ -58,6 +58,4 @@ public class query12
 /*
  * REFERECNES :-
  * http://www.zentut.com/java-swing/how-to-use-jtable-to-display-data/
- * 
- *
  */

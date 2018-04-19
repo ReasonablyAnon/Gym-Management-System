@@ -36,7 +36,7 @@ public class query7
 	    JScrollPane scrollPane = new JScrollPane(table);
 	    table.setFillsViewportHeight(true);
 	 
-	    JLabel lblHeading = new JLabel("Display Customer Names whose Trainer's Salary > 4000 - (COMPLEX) ");
+	    JLabel lblHeading = new JLabel("Display Customer Names whose Trainer's Salary > 40000 - (COMPLEX) ");
 	    lblHeading.setFont(new Font("Arial",Font.TRUETYPE_FONT,20));
 	    
 	    frame.getContentPane().setLayout(new BorderLayout());

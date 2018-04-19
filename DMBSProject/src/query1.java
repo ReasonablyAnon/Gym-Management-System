@@ -12,7 +12,7 @@ public class query1
 	{
 		JFrame frame = new JFrame();
 		String[] columns = {"Customer ID", "Name", "Address", "Age","Trainer ID"};
-		Object[][] data = new Object[10][5];
+		Object[][] data = new Object[12][5];
 		
 		try
 		{
@@ -20,7 +20,7 @@ public class query1
 			Statement stat=conn.createStatement();
 			ResultSet res=stat.executeQuery("select * from customer");
 			int i = 0;
-			while(res.next()) 
+			while( res.next() ) 
 			{
 				data[i][0] = res.getInt("customer_id");
 				data[i][1] = res.getString("customer_name");
