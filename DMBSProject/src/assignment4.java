@@ -1,3 +1,4 @@
+//assignment 4 : using jdbc socket to create sql request for java
 import java.sql.*;
 public class assignment4 {
 
